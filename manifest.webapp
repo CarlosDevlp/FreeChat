@@ -1,0 +1,15 @@
+{
+  "name": "FREECHAT",
+  "description": "Chat where everyone can be",
+  "icons": {
+    "128": "/logo-128.png",
+    "512": "/logo-512.png"
+  },
+  "developer": {
+    "name": "Carlos Chavez Laguna."
+  },
+  "launch_path": "/index.html",
+  "default_locale": "en",
+  "orientation": "portrait",
+  "fullscreen": "true"
+}
