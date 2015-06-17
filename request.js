@@ -5,12 +5,13 @@ var path    = require("path");
 var bodyParser = require('body-parser');
 var multer = require('multer'); 
 var mariadb=require(__dirname+'/dao.js');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);//socket
 //use
 app.use(express.static(__dirname +'')); 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
-//app.use(express.bodyParser());
 
 //petición por get
 app.get("/",function(req,res){	 
@@ -51,9 +52,22 @@ app.post("/sendmsj",function(req, res){
 	
 });
 
+http.listen(8080);
+//console.log("mi servidor, mio de mi");
+//Sockets
 
-app.listen(6969);
-console.log("mi servidor, mio de mi");
+io.sockets.on('connection', function(socket){
+  	console.log('Usuario conectado');
+  	socket.on('emision',function(resp){//dispara para todos los sockets
+  		var a;
+  		Dao.insert(resp.emisor,resp.msj);//manda el mensaje a la base de datos
+  		Dao.select(function(result){  			
+			io.sockets.emit('recepcion',result);
+  		});
+  		  	
+  	})
+});
+
 /*Creado por carlos chavez laguna*/
 
 /*

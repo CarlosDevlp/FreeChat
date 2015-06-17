@@ -1,8 +1,7 @@
 html{
 		background: #FF7B0D;
 		font-family: helvetica, arial;
-		font-size:1.3em;
-		overflow-y:hidden;
+		font-size:1.3em;		
 }
 form{
 	width: 100%;
@@ -37,7 +36,7 @@ button{
 
 }
 
-@media screen and (max-height: 480px) {
+@media screen and (max-height: 500px) {
     .chat {
         max-height: 230px;
     }
