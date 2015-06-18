@@ -2,7 +2,7 @@
  $(document).ready(function(){
 		//var nickname=prompt("Ingrese nickname:");
 		var socket=io();
-		var socketUrl='http://192.168.2.2:8080/sendmsj';//'http://10.144.84.45:6969/sendmsj';
+		var socketUrl='http://10.144.84.10:8080/sendmsj';//'http://192.168.2.2:8080/sendmsj';//'http://10.144.84.45:6969/sendmsj';
 
 		//función para actualizar chat
 		var	update=function (msjs){
